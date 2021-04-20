@@ -1,0 +1,44 @@
+.navbar { 
+    margin-bottom: 10;
+    background-color: #160A47;
+    border: 0;
+    font-size: 11px !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+}
+
+.navbar li a,
+.navbar .navbar-brand {
+  color: #fff !important;
+}
+
+.navbar-default .navbar-toggle {
+  border-color: transparent;
+}
+
+.sidenav {
+    padding-top: 20px;
+    background-color: #fff;
+    height: 100%;
+}
+
+footer {
+    background-color: #160A47;
+    color: #fff;
+    padding: 15px;
+    position: fixed; 
+    bottom: 0px;
+    width: 100%;
+}
+
+.well-block-criar-grafo {
+    background-color: #fff;
+    border: 2px solid #160A47;
+    padding: 40px;
+    height: 100%;
+    margin-bottom: 1%;
+    border-radius: 10px;
+    margin-top: 5%;
+    width:100%;
+    text-align: center;
+}
