@@ -1,4 +1,4 @@
-.navbar { 
+.navbar {
     margin-bottom: 10;
     background-color: #160A47;
     border: 0;
@@ -9,11 +9,24 @@
 
 .navbar li a,
 .navbar .navbar-brand {
-  color: #fff !important;
+    color: #fff !important;
+}
+
+.navbar-nav li a:hover {
+    color: #fff !important;
+}
+
+.navbar-nav li.active a {
+    color: #fff !important;
+    background-color: #700A47 !important;
 }
 
 .navbar-default .navbar-toggle {
-  border-color: transparent;
+    border-color: transparent;
+}
+
+.row.content {
+    height: 450px
 }
 
 .sidenav {
@@ -24,11 +37,12 @@
 
 footer {
     background-color: #160A47;
-    color: #fff;
+    color: white;
     padding: 15px;
     position: fixed; 
     bottom: 0px;
-    width: 100%;
+    width:100%;
+    text-align: center;
 }
 
 .well-block-criar-grafo {
@@ -42,3 +56,4 @@ footer {
     width:100%;
     text-align: center;
 }
+
