@@ -5,13 +5,13 @@
     <title>Problema do Ciclo de Peso Zero</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 
-<body>
+<body id="grafoDashboard" data-spy="scroll" data-target=".navbar" data-offset="60">
     <!-- MENU -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -23,13 +23,13 @@
                  </button>
                 <a class="navbar-brand" href="#">Problema do Ciclo de Peso Zero</a>
             </div>
-            <!--OPTIONS WITH JS STYLE -->
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#faq">FAQ</a></li>
-            </ul>
+            <!--OPÇÕES COM STYLE DE JS -->
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a target="_blank" href="https://github.com/renaderibeiro/Zero-weight-cycle-problem">GitHub</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#faq">FAQ</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#myCanvas">Canvas</a></li>
@@ -41,7 +41,7 @@
                     <li><a href="#acoes">Ações</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#criar-grafo">Criar Grafo</a></li>
+                    <li><a href="#criacao">Criação</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#sobre">Sobre</a></li>
@@ -49,24 +49,39 @@
             </div>
         </div>
     </nav>
-    <!-- FIM MENU -->
-
-    <!-- CRIAR GRAFOS -->
     <div class="container-fluid text-center">
-        <div class="row" id="criar-grafo">
+        <!-- SOBRE -->
+        <div class="row" id="sobre">
             <div class="col-md-12">
-                <div class="well-block-criar-grafo">
+                <div class="well-block-sobre">
+                    <p>SOBRE O TRABALHO</p>
+                </div>
+            </div>
+        </div>
+        <!-- CRIAÇÃO DE GRAFO -->
+        <div class="row" id="criacao">
+            <div class="col-md-12">
+                <div class="well-block-criacao">
                     <form class="form-horizontal">
-                        <button type="button" class="btn btn-xlarge btn-info" onclick="">
+                        <button type="button" class="btn btn-xlarge btn-info">
                             <span class="glyphicon glyphicon-plus"></span>
                             Criar grafo
-                        </button>
                     </form>
+                </div>
+            </div>
+        </div>
+        <!-- CANVAS-->
+        <div class="row slideanim" id="interface">
+            <div class="col-md-12">
+                <div class="well-block-canvas">
+                    <legend>Canvas</legend>
+                    <canvas id="myCanvas" height="300"></canvas>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- FOOTER -->
     <footer class="container-fluid text-center">
         <p>Desenvolvido por Renata L. R. de Sena</p>
     </footer>
