@@ -1,1 +1,1 @@
-# Acompanhe pelo git hub: https://renaderibeiro.github.io/Zero-weight-cycle-problem/
+# Acompanhe pelo git hub: https://renaderibeiro.github.io/problema-do-ciclo-de-peso-zero/
