@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 
-<body id="grafoDashboard" data-spy="scroll" data-target=".navbar" data-offset="60">
+<body id="grafoDashboard" data-spy="scroll" data-target=".navbar" data-offset="80">
     <!-- MENU -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -21,15 +21,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>                        
                  </button>
-                <a class="navbar-brand" href="#">Problema do Ciclo de Peso Zero</a>
+                <a class="navbar-brand" href="#">Ciclo de Peso Zero</a>
             </div>
             <!--OPÇÕES COM STYLE DE JS -->
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a target="_blank" href="https://github.com/renaderibeiro/Zero-weight-cycle-problem">GitHub</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#faq">FAQ</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#myCanvas">Canvas</a></li>
@@ -54,7 +51,13 @@
         <div class="row" id="sobre">
             <div class="col-md-12">
                 <div class="well-block-sobre">
-                    <p>SOBRE O TRABALHO</p>
+                    <legend>Sobre</legend>
+                    <p>Maecenas maximus rhoncus magna, quis accumsan ante. Morbi euismod facilisis viverra. Donec rhoncus ante lacus, nec consequat lectus hendrerit sit amet. Aliquam non tincidunt massa. Vivamus in semper tellus. Cras in magna bibendum, cursus massa ut, rhoncus sem. Vivamus elementum vestibulum tincidunt. Quisque pellentesque cursus dolor, et tincidunt enim condimentum sed. Phasellus ac tincidunt tortor. Donec lobortis luctus faucibus. Fusce pellentesque est quis laoreet accumsan.
+
+                        Quisque convallis ligula et vehicula condimentum. Sed neque nulla, fermentum et interdum at, rhoncus sit amet neque. Fusce posuere eget sem viverra sodales. Aliquam maximus metus sit amet leo pellentesque eleifend. Vestibulum mattis malesuada ornare. Vivamus egestas feugiat diam at dapibus. Suspendisse non erat ac mi scelerisque ornare. Nulla efficitur ullamcorper lectus, sed porttitor lectus. Morbi at consectetur arcu. In elementum elit eu nunc consectetur imperdiet. Sed ut dolor vel ante dignissim auctor. Vestibulum nibh mauris, rutrum eget tellus ac, ullamcorper aliquet nunc. Curabitur congue et justo id ornare. Nunc nunc tellus, congue sit amet ligula nec, pharetra interdum tortor. Fusce mattis nulla ac est consectetur sodales. Ut ut vestibulum turpis.</p>
+                    <p>Maecenas maximus rhoncus magna, quis accumsan ante. Morbi euismod facilisis viverra. Donec rhoncus ante lacus, nec consequat lectus hendrerit sit amet. Aliquam non tincidunt massa. Vivamus in semper tellus. Cras in magna bibendum, cursus massa ut, rhoncus sem. Vivamus elementum vestibulum tincidunt. Quisque pellentesque cursus dolor, et tincidunt enim condimentum sed. Phasellus ac tincidunt tortor. Donec lobortis luctus faucibus. Fusce pellentesque est quis laoreet accumsan.
+
+                            Quisque convallis ligula et vehicula condimentum. Sed neque nulla, fermentum et interdum at, rhoncus sit amet neque. Fusce posuere eget sem viverra sodales. Aliquam maximus metus sit amet leo pellentesque eleifend. Vestibulum mattis malesuada ornare. Vivamus egestas feugiat diam at dapibus. Suspendisse non erat ac mi scelerisque ornare. Nulla efficitur ullamcorper lectus, sed porttitor lectus. Morbi at consectetur arcu. In elementum elit eu nunc consectetur imperdiet. Sed ut dolor vel ante dignissim auctor. Vestibulum nibh mauris, rutrum eget tellus ac, ullamcorper aliquet nunc. Curabitur congue et justo id ornare. Nunc nunc tellus, congue sit amet ligula nec, pharetra interdum tortor. Fusce mattis nulla ac est consectetur sodales. Ut ut vestibulum turpis.</p>
                 </div>
             </div>
         </div>
@@ -62,20 +65,148 @@
         <div class="row" id="criacao">
             <div class="col-md-12">
                 <div class="well-block-criacao">
+                    <legend>Criação de Grafo</legend>
                     <form class="form-horizontal">
-                        <button type="button" class="btn btn-xlarge btn-info">
+                        <button type="button" class="btn btn-xlarge btn-info" onclick="adicionaGrafo(1)">
                             <span class="glyphicon glyphicon-plus"></span>
                             Criar grafo
                     </form>
                 </div>
             </div>
         </div>
+        <div class="row slideanim" id="acoes">
+            <!-- LISTA DE OPÇÕES DE COMPONENTES  -->
+            <div class="col-md-4">
+                <div class="well-block-acoes">
+                    <!-- CABEÇALHO DO PAINEL  -->
+                    <legend>Inserção e Remoção</legend>
+                    <!-- ADICIONA VÉRTICE -->
+                    <form class="form-horizontal">
+                        <!-- ADICIONA VÉRTICE -->
+                        <div class="form-group">
+                            <input class="form-control" id="inputAddVertice" placeholder="Vértice">
+                            <button type="button" class="btn botao-btn btn-info btn-block" id="addVertice" onclick="adicionaVertice()">
+                                 <span class="glyphicon glyphicon-plus"></span>
+                                    Adicionar Vértice
+                            </button>
+                        </div>
+                        <!-- ADICIONA ARESTA/ARCO PONDERADA -->
+                        <div class="form-group">
+                            <div class="dropdown">
+                                <input class="form-control" id="inputAddArestaPond1" placeholder="Vértice 1">
+                                <input class="form-control" id="inputAddArestaPond2" placeholder="Vértice 2">
+                                <input class="form-control" id="inputAddPesoPond" placeholder="Peso">
+                                <button class="btn botao-btn btn-block dropdown-toggle" type="button" data-toggle="dropdown" onclick="adicionaArcoPonderado()">
+                                    Adicionar
+                            </div>
+                        </div>
+                        <!-- REMOVE VÉRTICE -->
+                        <div class="form-group">
+                            <input class="form-control" id="inputDelVertice" placeholder="Vértice">
+                            <button type="button" class="btn botao-btn btn-info btn-block" id="delVertice" onclick="removeVertice()">
+                                <span class="glyphicon glyphicon-remove"></span>
+                                Remove Vértice
+                            </button>
+                        </div>
+                        <!-- REMOVE LIGAÇÃO -->
+                        <div class="form-group">
+                            <input class="form-control" id="inputDelLigacao1" placeholder="Origem">
+                            <input class="form-control" id="inputDelLigacao2" placeholder="Destino">
+                            <button type="button" class="btn botao-btn btn-info btn-block" id="delLigacao" onclick="removeLigacao()">
+                                 <span class="glyphicon glyphicon-remove"></span>
+                                 Remove Ligação
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!---->
+            <!-- LISTA DE OPÇÕES DIVERSAS  -->
+            <div class="col-md-4">
+                <div class="well-block-acoes">
+                    <legend>Operações</legend>
+                    <form class="form-horizontal">
+                        <!-- RETORNAR LIGAÇÕES -->
+                        <div class="form-group">
+                            <input class="form-control" id="inputRetornarLigacoes" placeholder="Vértice">
+                            <button type="button" class="btn botao-btn btn-info btn-block" id="retornarLigacoes" onclick="retornaLigacoes()">
+                                Retornar Ligações</button>
+                        </div>
+                        <!-- EXISTE LIGAÇÕES -->
+                        <div class="form-group">
+                            <input class="form-control" id="inputExisteLigacaoOrigem" placeholder="Origem">
+                            <input class="form-control" id="inputExisteLigacaoDestino" placeholder="Destino">
+                            <button type="button" class="btn botao-btn btn-info btn-block" id="existeLigacoes" onclick="existeLigacao()">
+                                Existe Ligação</button>
+                        </div>
+                        <!-- EXISTE VÉRTICE -->
+                        <div class="form-group">
+                            <input class="form-control" id="inputExisteVertice" placeholder="Vértice">
+                            <button type="button" class="btn botao-btn btn-info btn-block" id="existeVertices" onclick="existeVertice()">
+                                Existe Vértice</button>
+                        </div>
+                        <!-- IMPRIMIR VERTICES -->
+                        <div class="form-group">
+                            <div class="dropdown">
+                                <button class="btn botao-btn btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                    Impressões
+                                <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li onclick="imprimeVertices()"><a>Imprimir Vértices</a></li>
+                                    <li onclick="imprimeMatriz()"><a>Imprimir Matriz</a></li>
+                                    <li onclick="imprimeLista()"><a>Imprimir Lista</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <br> </br>
+                        <!-- LIMPAR CONSOLE -->
+                        <div class="form-group">
+                            <button type="button" class="btn btn-danger btn-block" onclick="limparConsole()"> Limpar Console</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- CICLO DE PESO ZERO -->
+            <div class="col-md-4">
+                <div class="well-block-acoes">
+                    <legend> Ciclo de Peso Zero</legend>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <p>explicacao de o porque que o ciclo de peso zero existe o que é, como é feito o calculo
+                                blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla 
+                                blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla 
+                                blablabla blablabla blablabla blablabla blablabla blablabla blablabla 
+                                blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla 
+                                blablabla blablabla blablabla blablabla blablabla blablabla blablabla 
+                                blablabla blablabla blablabla blablabla blablabla blablabla 
+                                blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla 
+                                blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla 
+                                blablabla blablabla blablabla blablabla blablabla blablabla blablabla 
+                                blablalablabla blablabla blablabla blablabla blablabla blabla
+                                blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla 
+                            </p>
+                            <br></br>
+                            <button type="button" class="btn botao-btn btn-info btn-block" id="retornarCiclo" onclick="retornaCiclo()">
+                                Existe Ciclo de Peso Zero</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- LOG -->
+            <div class="col-md-12" id="console">
+                <div class="well-block-log">
+                    <legend>Console</legend>
+                    <div id="log"></div>
+                </div>
+            </div>  
+        </div> 
         <!-- CANVAS-->
         <div class="row slideanim" id="interface">
             <div class="col-md-12">
                 <div class="well-block-canvas">
                     <legend>Canvas</legend>
-                    <canvas id="myCanvas" height="300"></canvas>
+                    <canvas id="myCanvas" height="300">
+                    </canvas>
                 </div>
             </div>
         </div>
@@ -86,6 +217,52 @@
         <p>Desenvolvido por Renata L. R. de Sena</p>
     </footer>
 
+    <script src="js/notify.js"></script>
+    <script src="js/grafosLib.js"></script>
+    <script src="js/grafosButton.js"></script>
+    <script src="js/canvas.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            //Tooltip
+            $('[data-toggle="tooltip"]').tooltip();
+
+            // Add smooth scrolling to all links in navbar + footer link
+            $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 900, function () {
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+        })
+
+        $(window).scroll(function () {
+            $(".slideanim").each(function () {
+                var pos = $(this).offset().top;
+
+                var winTop = $(window).scrollTop();
+                if (pos < winTop + 600) {
+                    $(this).addClass("slide");
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
