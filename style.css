@@ -34,20 +34,6 @@
     height: 100%;
 }
 
-.btn-xlarge{
-    display: inline-block;
-    margin: 10px;
-    height: 20x;
-    padding: 18px 18px;
-    font-size: 12px;
-    color: white;
-    text-align: center;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-    background: #160A47;
-    border: 0;
-    cursor: pointer;
-}
-
 .input{
     display: inline-block;
 }
@@ -61,10 +47,15 @@ footer {
     width: 100%;
 }
 
+legend {
+    text-align: center !important;
+    color: #160A47;
+}
+
 .well-block-sobre {
     background-color: #fff;
     border: 2px solid #160A47;
-    padding: 20px;
+    padding: 10px;
     height: 100%;
     margin-bottom: 1%;
     border-radius: 10px;
@@ -80,9 +71,35 @@ footer {
     height: 100%;
     margin-bottom: 1%;
     border-radius: 10px;
-    margin-top: 0%;
+    margin-top: 2%;
     width:100%;
     text-align: center;
+}
+
+.well-block-acoes {
+    background-color: #fff;
+    border: 2px solid #160A47;
+    padding-bottom: 20px;
+    height: 650px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding-top: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.well-block-acoes-mid {
+    background-color: #fff;
+    border: 2px solid #160A47;
+    padding-bottom: 20px;
+    height: 320px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding-top: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 .well-block-canvas {
@@ -94,6 +111,46 @@ footer {
     margin-bottom: 8%;
     border-radius: 10px;
     margin-top: 2%;
+}
+
+.well-block-log {
+    background-color: #fff;
+    border: 2px solid #160A47;
+    padding: 40px;
+    height: 100%;
+    margin-bottom: 1%;
+    border-radius: 10px;
+    margin-top: 2%;
+}
+
+.botao-btn{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    color: #fff;
+    border-color: #29292c;
+    background-color: #160A47;
+    transition: all .5s;
+}
+
+.btn-xlarge{
+    display: inline-block;
+    margin: 10px;
+    height: 20x;
+    padding: 18px 18px;
+    font-size: 12px;
+    color: white;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    background: #160A47;
+    border: 0;
+    cursor: pointer;
 }
 
 .slideanim {
@@ -109,6 +166,11 @@ footer {
     -webkit-animation-duration: 1s;
     /* Make the element visible */
     visibility: visible; 
+}
+
+.btn.focus, .btn:focus, .btn:hover {
+    color: white;
+    text-decoration: none;
 }
 
 /* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
