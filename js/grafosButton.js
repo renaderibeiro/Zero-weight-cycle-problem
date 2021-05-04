@@ -3,9 +3,14 @@
  As funções a seguir são usadas para a interface WEB (Botões, inputs, console), chamando as funções da classe grafo acima.
  Evitem mexer pelos controles dos buttons etc
 ****************************************************************************************************************************/
+
 function adicionaGrafo(){
     grafo =  new Grafo();
-    imprimeNotificacao("Grafo criado com sucesso!", "success");
+    if (grafo) {
+        imprimeNotificacao("Grafo criado com sucesso!", "success");
+    } else {
+        imprimeNotificacao("Houve um problema, o grafo não foi criado!", "error");
+    }
 }
 
 function adicionaVertice(){

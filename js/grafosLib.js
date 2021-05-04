@@ -51,7 +51,7 @@
      >> GRAFO PODE SER PONDERADO E/OU DIRECIONADO
      /*###############################################################################################################################*/
 
-     function Grafo(){
+    function Grafo(){
         this.vertices = [];
         this.ligacao  = [];
     }
