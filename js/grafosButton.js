@@ -3,12 +3,9 @@
  As funções a seguir são usadas para a interface WEB (Botões, inputs, console), chamando as funções da classe grafo acima.
  Evitem mexer pelos controles dos buttons etc
 ****************************************************************************************************************************/
-function adicionaGrafo(opcao){
-    if(opcao === 1){
-        grafo =  new Grafo(true,true);
-    }
+function adicionaGrafo(){
+    grafo =  new Grafo();
     imprimeNotificacao("Grafo criado com sucesso!", "success");
-    
 }
 
 function adicionaVertice(){
@@ -258,6 +255,11 @@ logger.innerHTML = '<br />';
 function retornaCiclo(){
     limparConsole()
     //funcao
+    if(grafo.vertices.length > 0){
+        grafo.desenhaCanvasLigacoes();
+    }else{
+       imprimeNotificacao("Não existem Vértices!", "warn"); 
+    }
     imprimeNotificacao("Não existem ciclos de peso zero!", "error");
 }
 

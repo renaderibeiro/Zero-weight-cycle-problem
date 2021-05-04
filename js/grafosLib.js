@@ -54,8 +54,6 @@
      function Grafo(){
         this.vertices = [];
         this.ligacao  = [];
-        this.direcionado = true;
-        this.ponderado = true;
     }
 
     /*####################################################################################################################################/
@@ -106,15 +104,15 @@
      >> ATRIBUI 1 AO PESO E CHAMA a função addArco() PONDERADO
      /*###############################################################################################################################*/
 
-    Grafo.prototype.addArco = function (vertice1,vertice2) {
-        if(this.direcionado) {
-            this.peso = 1;
-            this.addArcoPonderado(vertice1, vertice2, this.peso);
-        }else{
-            console.log('Impossível adicionar Arco em grafos não direcionados');      
-            imprimeNotificacao("Impossível adicionar Arco em grafos não direcionados!", "error");
-        }
-    };
+    //Grafo.prototype.addArco = function (vertice1,vertice2) {
+        //if(this.direcionado) {
+        //    this.peso = 1;
+        //    this.addArcoPonderado(vertice1, vertice2, this.peso);
+        //}else{
+        //    console.log('Impossível adicionar Arco em grafos não direcionados');      
+        //    imprimeNotificacao("Impossível adicionar Arco em grafos não direcionados!", "error");
+        //}
+    //};
 
     /*####################################################################################################################################/
      ADICIONA ARCO PONDERADO - Samuel Brati Favarin
@@ -124,13 +122,13 @@
      /*###############################################################################################################################*/
 
     Grafo.prototype.addArcoPonderado = function (vertice1,vertice2,_peso){
-        if (this.direcionado) {
+        //if (this.direcionado) {
             this.ligacao[vertice1].push([vertice2, _peso]);  
             //imprimeNotificacao("Arco adicionado com sucesso!", "success");
-        } else {
-            console.log('Impossível adicionar Arco em grafos não direcionados');
+        //} else {
+            //console.log('Impossível adicionar Arco em grafos não direcionados');
             //imprimeNotificacao("Impossível adicionar Arco em grafos não direcionados!", "error");
-        }
+        //}
     };
 
  
@@ -142,7 +140,7 @@
      >> ATRIBUI 1 AO PESO E CHAMA a função addAresta() PONDERADA
      /*###############################################################################################################################*/
 
-    Grafo.prototype.addAresta = function (vertice1,vertice2) {
+    /*Grafo.prototype.addAresta = function (vertice1,vertice2) {
         if(!this.direcionado) {
             this.peso = 1;
             this.addArestaPonderada(vertice1, vertice2, this.peso);
@@ -150,7 +148,7 @@
             console.log('Impossível adicionar Aresta em grafos direcionados');
             imprimeNotificacao("Impossível adicionar Aresta em grafos direcionados!", "error");
         }
-    };
+    };*/
 
     /*####################################################################################################################################/
      ADICIONA ARESTA PONDERADA - Samuel Brati Favarin
@@ -160,16 +158,16 @@
      >> INSERE NO CONJUNTO DE LIGAÇÕES, NA POSIÇÃO DO VERTICE DE DESTINO UM ARRAY COM O ORIGEM NA POSIÇÃO 0 E O PESO NA POSIÇÃO 1
      /*###############################################################################################################################*/
 
-    Grafo.prototype.addArestaPonderada = function (vertice1,vertice2,_peso){
-        if (!this.direcionado) {
-            this.ligacao[vertice1].push([vertice2, _peso]);
-            this.ligacao[vertice2].push([vertice1, _peso]);
+    //Grafo.prototype.addArestaPonderada = function (vertice1,vertice2,_peso){
+    //    if (!this.direcionado) {
+    //        this.ligacao[vertice1].push([vertice2, _peso]);
+    //        this.ligacao[vertice2].push([vertice1, _peso]);
 	        //imprimeNotificacao("Aresta adicionado com sucesso!", "success");
-        } else {
-            console.log('Impossível adicionar Aresta em grafos direcionados');
-            imprimeNotificacao("Impossível adicionar Aresta em grafos direcionados!", "error");
-        }
-    };
+    //    } else {
+    //        console.log('Impossível adicionar Aresta em grafos direcionados');
+    //        imprimeNotificacao("Impossível adicionar Aresta em grafos direcionados!", "error");
+    //    }
+    //};
 
     /*####################################################################################################################################/
      EXISTE LIGAÇÕES - Samuel Brati Favarin
@@ -184,7 +182,7 @@
      /*###############################################################################################################################*/
 
     Grafo.prototype.existeLigacao = function (origem,destino) {
-        if(this.direcionado){
+        //if(this.direcionado){
             for(var i =0; i<this.ligacao[origem].length; i++ ) {
                 if (this.ligacao[origem][i][0] === destino) {
                     console.log('Existe Arco!!!');
@@ -195,7 +193,7 @@
             console.log('Arco não encontrado!!!');
             imprimeNotificacao("Arco não encontrado!", "error");
             return false;
-        }else{
+        /*}else{
             for(i =0; i<this.ligacao[origem].length; i++ ) {
                 if (this.ligacao[origem][i][0] === destino) {
                     for(var j =0; j<this.ligacao[destino].length; j++){
@@ -210,19 +208,19 @@
             console.log('Aresta não encontrada!!!');
             imprimeNotificacao("Aresta não encontrada!", "warn");
             return false;
-        }
+        }*/
     };
 
 
     Grafo.prototype._existeLigacao = function (origem,destino) {
-        if(this.direcionado){
+        //if(this.direcionado){
             for(var i =0; i<this.ligacao[origem].length; i++ ) {
                 if (this.ligacao[origem][i][0] === destino) {
                     return true;
                 }
             }
             return false;
-        }else{
+        /*}else{
             for(i =0; i<this.ligacao[origem].length; i++ ) {
                 if (this.ligacao[origem][i][0] === destino) {
                     for(var j =0; j<this.ligacao[destino].length; j++){
@@ -233,20 +231,20 @@
                 }
             }
             return false;
-        }
+        }*/
     };
 
 
 
      Grafo.prototype._existeLigacaoEmGrafo = function (origem,destino,g) {
-        if(g.direcionado){
+        //if(g.direcionado){
             for(var i =0; i<g.ligacao[origem].length; i++ ) {
                 if (g.ligacao[origem][i][0] === destino) {
                     return true;
                 }
             }
             return false;
-        }else{
+        }/*else{
             for(i =0; i<g.ligacao[origem].length; i++ ) {
                 if (g.ligacao[origem][i][0] === destino) {
                     for(var j =0; j<g.ligacao[destino].length; j++){
@@ -257,7 +255,7 @@
                 }
             }
             return false;
-        }
+        }*/
     };
 
 
@@ -287,7 +285,7 @@
      /*###############################################################################################################################*/
 
     Grafo.prototype.removerLigacao = function (origem,destino) {
-        if(this.direcionado){
+        //if(this.direcionado){
             for(var i =0; i<this.ligacao[origem].length; i++ ) {
                 if (this.ligacao[origem][i][0] === destino) {
                     //DELETA PESO
@@ -298,7 +296,7 @@
 					break;
                 }
             }
-        }else{
+        /*}else{
             for(i =0; i<this.ligacao[origem].length; i++ ) {
                 if (this.ligacao[origem][i][0] === destino) {
                     for(var j =0; j<this.ligacao[destino].length; j++){
@@ -318,7 +316,7 @@
                     }
                 }
             }
-        }
+        }*/
     };
 
     /*####################################################################################################################################/
@@ -868,7 +866,7 @@ Grafo.prototype._dfsComDestino = function (origem,destino,g){
     /*####################################################################################################################################/
                DESENHAR GRAFO EM CANVAS 30/10/17 VINÍCIUS
      /*##################################################################################################################################*/
-    Grafo.prototype.desenhaCanvasLigacoes = function (tipo){
+    Grafo.prototype.desenhaCanvasLigacoes = function (){
 
         //Config do canvas
         canvas  = document.getElementById('myCanvas');
@@ -897,7 +895,7 @@ Grafo.prototype._dfsComDestino = function (origem,destino,g){
 
          console.log(vertices);
          console.log(ligacoes);
-
+         start(canvas, vertices, ligacoes, grafo);
          /*if(tipo == "welshAndPowell"){
             start(canvas, this.welshAndPowell(), ligacoes, grafo);
          }else if(tipo == "dsatur"){
