@@ -16,10 +16,9 @@ function adicionaVertice(){
         grafo.addVertice(vertice.value);
         imprimeNotificacao("Vertice adicionado com sucesso", "success");
         vertice.value = '';
-  
-  }else{
-    imprimeNotificacao("Valores não podem ser vazios!", "error");
-  }
+    }else{
+        imprimeNotificacao("Valores não podem ser vazios!", "error");
+    }
 }
 
 
