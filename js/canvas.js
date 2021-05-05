@@ -173,4 +173,4 @@ function start(canvas,vertices,ligacoes,grafo){
         else canvas.style.cursor = "auto";
     };
 
-};
+}
