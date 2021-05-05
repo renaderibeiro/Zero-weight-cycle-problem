@@ -4,3 +4,8 @@ function Grafo(_direcionado,_ponderado){
     this.direcionado = _direcionado;
     this.ponderado = _ponderado;
 }
+
+Grafo.prototype.addVertice = function (vertice){
+    this.vertices.push(vertice);
+    this.ligacao[vertice] = [];
+};

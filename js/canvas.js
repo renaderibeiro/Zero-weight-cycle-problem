@@ -1,16 +1,17 @@
 //DESENHA LINHA
 function drawLine(Inx,Iny,Outx,Outy, grafo, peso){
     //if(grafo['direcionado'] === true){
-        if(Outx === Inx && Outy === Iny){
-            ctx.arc(Inx,Iny-25,20,0,2*Math.PI);
-            ctx.lineWidth = 5;
-            ctx.strokeStyle = 'black';
-            ctx.stroke();
-            if(grafo['ponderado'] === true) {
-                ctx.font="18px Arial";
-                ctx.fillStyle = 'red';
-                ctx.fillText(peso, Inx, Iny-45);
-            }
+    if(Outx === Inx && Outy === Iny){
+        ctx.arc(Inx,Iny-25,20,0,2*Math.PI);
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = 'black';
+        ctx.stroke();
+        if(grafo['ponderado'] === true) {
+            ctx.font="18px Arial";
+            ctx.fillStyle = 'red';
+            ctx.fillText(peso, Inx, Iny-45);
+        }
+    }
      /*   }else{
             var headlen = 35;
             //origem -> destino
@@ -37,16 +38,16 @@ function drawLine(Inx,Iny,Outx,Outy, grafo, peso){
         ctx.closePath();
     }*/
     //if(grafo['ponderado'] === true && grafo['direcionado'] === true){
-        var posYPeso = Iny - 35 * Math.sin(angle - Math.PI/17);
-        var posXPeso = Inx - 35 * Math.cos(angle - Math.PI/17);
+    var posYPeso = Iny - 35 * Math.sin(angle - Math.PI/17);
+    var posXPeso = Inx - 35 * Math.cos(angle - Math.PI/17);
 
-        //console.log(Inx, headlen, Math.sin(angle - Math.PI/17));
-        //console.log(peso,posXPeso,posYPeso);
-        ctx.beginPath();
-        ctx.font="18px Arial";
-        ctx.fillStyle = 'red';
-        ctx.fillText(peso, posXPeso, posYPeso);
-        ctx.closePath();
+    //console.log(Inx, headlen, Math.sin(angle - Math.PI/17));
+    //console.log(peso,posXPeso,posYPeso);
+    ctx.beginPath();
+    ctx.font="18px Arial";
+    ctx.fillStyle = 'red';
+    ctx.fillText(peso, posXPeso, posYPeso);
+    ctx.closePath();
 
     /*}else if (grafo['ponderado'] === true && grafo['direcionado'] === false){
         var posXPeso = 0, posYPeso = 0;
@@ -75,7 +76,7 @@ function drawLine(Inx,Iny,Outx,Outy, grafo, peso){
         ctx.stroke();
         ctx.closePath();
     }*/
-}
+};
 
 function drawCircle(name,x,y,color){
     ctx.beginPath();
@@ -89,7 +90,9 @@ function drawCircle(name,x,y,color){
     ctx.fillStyle = "white";
     ctx.textAlign = "center";
     ctx.fillText(name, x, y+5);
-}
+};
+
+
 function update(circles,ligacoes,grafo){
     ctx.clearRect(0,0,canvas.width,canvas.height);
     ctx.beginPath();
@@ -111,7 +114,10 @@ function update(circles,ligacoes,grafo){
     for(var l=0; l<circles.length;l++){
         drawCircle(circles[l][0],circles[l][1],circles[l][2],circles[l][3]);
     }
-}
+};
+
+
+
 //INICIA
 function start(canvas,vertices,ligacoes,grafo){
     circles = [];
@@ -173,4 +179,4 @@ function start(canvas,vertices,ligacoes,grafo){
         else canvas.style.cursor = "auto";
     };
 
-}
+};
