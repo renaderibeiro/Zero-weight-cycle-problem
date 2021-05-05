@@ -6,7 +6,7 @@ function Grafo(_direcionado,_ponderado){
 }
 
 Grafo.prototype.existeGrafo = function (){
-    if (this.vertices && this.ligacao && this.direcionado && this.ponderado) {
+    if (this.direcionado === true && this.ponderado === true) {
         return true;
     } else {
         return false;
@@ -16,6 +16,7 @@ Grafo.prototype.existeGrafo = function (){
 Grafo.prototype.addVertice = function (vertice){
     this.vertices.push(vertice);
     this.ligacao[vertice] = [];
+    return true;
 };
 
 Grafo.prototype.addAresta = function (vertice1,vertice2,_peso){
@@ -29,23 +30,15 @@ Grafo.prototype.addAresta = function (vertice1,vertice2,_peso){
 
 Grafo.prototype.existeVertice = function (vertice) {
     //var logger = document.getElementById('log');
-
     for(var i=0; i<this.vertices.length; i++){
         if(this.vertices[i] === vertice){
             console.log(this.vertices[i]);
-            console.log('Existe vértice');
-            
-            imprimeNotificacao("Existe Vértice! Verifique o console", "success");
-            
+            console.log('Existe vértice');        
             //logger.innerHTML += this.vertices[i] + '<br />';  
-
             return true;
-        }
+        } 
     }
-    console.log('Vértice não encontrado');
-    
-    imprimeNotificacao("Vértice não encontrado!", "warn");
-
+    console.log('Nao Existe vértice');
     //logger.innerHTML = '<br />';  
     return false;
 };
