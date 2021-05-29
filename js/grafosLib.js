@@ -1,4 +1,7 @@
-//funcoes de acao e criacao
+/*########################################################################################################        RETORNAR LIGAÇÕES - Samuel Brati Favarin
+
+            FUNÇÕES DE AÇÃO E CRIAÇÃO
+#######################################################################################################*/
 
 function Grafo(_direcionado,_ponderado){
     this.vertices = [];
@@ -54,7 +57,10 @@ Grafo.prototype.removerLigacao = function (origem,destino) {
     }
 };
 
-// funções de checagem
+/*########################################################################################################        RETORNAR LIGAÇÕES - Samuel Brati Favarin
+
+            FUNÇÕES DE CHECAGEM
+#######################################################################################################*/
 
 Grafo.prototype.existeGrafo = function (){
     if (this.direcionado === true && this.ponderado === true) {
@@ -102,7 +108,53 @@ Grafo.prototype.retornarLigacoes = function (vertice) {
     return this.ligacao[vertice];
 };
 
-// IMPRESSÃO GRAFO EM CANVA
+
+/*####################################################################################################################################/
+        DESENHA MATRIZ DE ADJACENCIA 
+
+    CRIA UMA MATRIZ COM TODOS OS VERTICES E BUSCA NO CONJUNTO DE LIGAÇÕES DE DETERMINADO VERTICE DE
+    DETERMINADO PESO
+    PRINTA A MATRIZ DE ADJACENCIA E A LISTA DE ADJACENCIA
+
+/*##################################################################################################################################*/
+Grafo.prototype.imprimirGrafo = function () {
+    this.matriz = new Array();
+    for(i=0;i < this.vertices.length; i++) {
+        this.matriz[i] = new Array();
+        for(j=0; j < this.vertices.length; j++){
+            this.matriz[i][j] = 0;
+            for(k=0; k< this.ligacao[this.vertices[i]].length; k++){
+                if(this.ligacao[this.vertices[i]][k][0] === this.vertices[j]) {
+                    this.matriz[i][j] = this.ligacao[this.vertices[i]][k][1];
+                }
+            }
+        }
+    }
+    console.log('Matriz de Adjacencia: ');
+    console.log(this.matriz);
+    console.log('Lista de Adjacencia: ');
+    console.log(this.ligacao);
+};
+
+function imprimeLista() {
+    var logger = document.getElementById('log');
+    logger.innerHTML += '<br />';
+
+    console.log(grafo.ligacao);
+    for(var i=0;i<grafo.vertices.length;i++){
+        logger.innerHTML += grafo.vertices[i] + ' -> ';
+        for(var j=0; j<grafo.ligacao[grafo.vertices[i]].length; j++){
+            logger.innerHTML += ' | ' + grafo.ligacao[grafo.vertices[i]][j][0]
+        }
+        logger.innerHTML += '<br>';
+    }
+}
+
+/*########################################################################################################        RETORNAR LIGAÇÕES - Samuel Brati Favarin
+
+            FUNÇÕES DE DESENHO CANVAS
+
+#######################################################################################################*/
 Grafo.prototype.desenhaCanvasLigacoes = function (tipo){
 
     //Config do canvas
@@ -135,12 +187,6 @@ Grafo.prototype.desenhaCanvasLigacoes = function (tipo){
 
     if(tipo == "welshAndPowell"){
         start(canvas, this.welshAndPowell(), ligacoes, grafo);
-    }else if(tipo == "dsatur"){
-        start(canvas, this.dsatur(), ligacoes, grafo);
-    }else if(tipo == "kruskal"){
-        start(canvas, this.welshAndPowell(), this.kruskal(), grafo);
-    }else if(tipo == "prim"){
-        start(canvas, this.dsatur(), this.prim(), grafo);
     }
 };
 
