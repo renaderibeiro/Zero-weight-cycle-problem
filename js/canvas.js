@@ -12,70 +12,11 @@ function drawLine(Inx,Iny,Outx,Outy, grafo, peso){
             ctx.fillText(peso, Inx, Iny-45);
         }
     }
-     /*   }else{
-            var headlen = 35;
-            //origem -> destino
-            var dx = Inx-Outx;
-            var dy = Iny-Outy;
-            var angle = Math.atan2(dy,dx);
-            //desenha arco
-            ctx.moveTo(Outx, Outy);
-            ctx.lineTo(Inx, Iny);
-            ctx.lineTo(Inx - headlen * Math.cos(angle - Math.PI/17), Iny - headlen * Math.sin(angle - Math.PI/17));
-            ctx.moveTo(Inx, Iny);
-            ctx.lineTo(Inx - headlen * Math.cos(angle + Math.PI/17), Iny - headlen * Math.sin(angle + Math.PI/17));
-            ctx.fillStyle="black";
-            ctx.stroke();
-            ctx.closePath();
-        }
-    }else{
-        //desenha aresta
-        ctx.beginPath();
-        ctx.moveTo(Inx,Iny);
-        ctx.lineTo(Outx,Outy);
-        ctx.fillStyle="black";
-        ctx.stroke();
-        ctx.closePath();
-    }*/
-    //if(grafo['ponderado'] === true && grafo['direcionado'] === true){
-    var posYPeso = Iny - 35 * Math.sin(angle - Math.PI/17);
-    var posXPeso = Inx - 35 * Math.cos(angle - Math.PI/17);
-
-    //console.log(Inx, headlen, Math.sin(angle - Math.PI/17));
-    //console.log(peso,posXPeso,posYPeso);
     ctx.beginPath();
     ctx.font="18px Arial";
     ctx.fillStyle = 'red';
     ctx.fillText(peso, posXPeso, posYPeso);
     ctx.closePath();
-
-    /*}else if (grafo['ponderado'] === true && grafo['direcionado'] === false){
-        var posXPeso = 0, posYPeso = 0;
-
-        if(Inx < Outx){
-            if(Iny < Outy){
-                posXPeso = (Outx+Inx)/2;
-                posYPeso = (Outy + Iny)/2;
-            }else{
-                posXPeso = (Outx+Inx)/2;
-                posYPeso = (Iny + Outy)/2
-            }
-        }else{
-            if(Iny < Outy){
-                posXPeso = (Inx + Outx)/2 ;
-                posYPeso = (Outy + Iny)/2;
-            }else{
-                posXPeso = (Inx + Outx)/2 ;
-                posYPeso = (Iny + Outy)/2;
-            }
-        }
-        //.log(posXPeso,posYPeso);
-        ctx.font="18px Arial";
-        ctx.fillStyle = 'red';
-        ctx.fillText(peso, posXPeso, posYPeso);
-        ctx.stroke();
-        ctx.closePath();
-    }*/
 };
 
 function drawCircle(name,x,y,color){
@@ -91,7 +32,6 @@ function drawCircle(name,x,y,color){
     ctx.textAlign = "center";
     ctx.fillText(name, x, y+5);
 };
-
 
 function update(circles,ligacoes,grafo){
     ctx.clearRect(0,0,canvas.width,canvas.height);
@@ -115,7 +55,6 @@ function update(circles,ligacoes,grafo){
         drawCircle(circles[l][0],circles[l][1],circles[l][2],circles[l][3]);
     }
 };
-
 
 
 //INICIA
