@@ -141,7 +141,80 @@ function limparConsole(){
 }
 
 
+/*########################################################################################################        RETORNAR LIGAÇÕES - Samuel Brati Favarin
 
+            FUNÇÕES DE IMPRESSÕES
+#######################################################################################################*/
+function imprimeVertices() {
+    limparConsole()
+    var logger = document.getElementById('log'); 
+    logger.innerHTML += '<br />'; 
+    logger.innerHTML += grafo.vertices + '<br />'; 
+}
 
+function imprimeMatriz() {
+    limparConsole()
+    var logger = document.getElementById('log');  
+    logger.innerHTML += '<br />';
 
+    this.matriz = new Array();
+    for(i=0;i < grafo.vertices.length; i++) {
+        this.matriz[i] = new Array();
+        for(j=0; j < grafo.vertices.length; j++){
+            this.matriz[i][j] = 0;
+            for(k=0; k< grafo.ligacao[grafo.vertices[i]].length; k++){
+                if(grafo.ligacao[grafo.vertices[i]][k][0] === grafo.vertices[j]) {
+                    this.matriz[i][j] = grafo.ligacao[grafo.vertices[i]][k][1];   
+                }   
+            }
+        }
+    }
+
+    logger.innerHTML += '  [ ## ]  ';
+
+    for(i=0;i < grafo.vertices.length; i++) {
+        logger.innerHTML += '  [' + grafo.vertices[i] + ']  '; 
+    }
+    
+    logger.innerHTML += '<br />'; 
+
+    for(i=0;i < this.matriz.length; i++) {
+      
+        logger.innerHTML += '  [ ' + grafo.vertices[i] + ' ]  ';   
+       
+        for(j=0; j < this.matriz.length; j++){
+           logger.innerHTML += '  [  ' + this.matriz[i][j] + ' ]  '; 
+        }
+        logger.innerHTML += '<br />'; 
+    }  
+}
+
+function imprimeLista() {
+    limparConsole()
+    var logger = document.getElementById('log');
+    logger.innerHTML += '<br />';
+
+    console.log(grafo.ligacao);
+    for(var i=0;i<grafo.vertices.length;i++){
+        logger.innerHTML += grafo.vertices[i] + ' -> ';
+        for(var j=0; j<grafo.ligacao[grafo.vertices[i]].length; j++){
+            logger.innerHTML += ' | ' + grafo.ligacao[grafo.vertices[i]][j][0]
+        }
+        logger.innerHTML += '<br>';
+    }
+}
+
+/*########################################################################################################        RETORNAR LIGAÇÕES - Samuel Brati Favarin
+
+            FUNÇÕES DE COLORAÇÃO CANVAS
+#######################################################################################################*/
+
+function coloreWelshAndPowell(){
+
+    if(grafo.vertices.length > 0){
+         grafo.desenhaCanvasLigacoes("welshAndPowell");
+     }else{
+        imprimeNotificacao("Não existem Vértices!", "warn"); 
+     }
+}
 
