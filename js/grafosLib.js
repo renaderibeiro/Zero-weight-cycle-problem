@@ -101,10 +101,10 @@ Grafo.prototype.existeVertice = function (vertice) {
 };
 
 Grafo.prototype.retornarLigacoes = function (vertice) {
-    var logger = document.getElementById('log');  
-    for(var i=0;i < this.ligacao[vertice].length; i++) {
-        logger.innerHTML += ' [ ' + this.ligacao[vertice][i][0] + ' ] ';     
-    }
+    //var logger = document.getElementById('log');  
+    //for(var i=0;i < this.ligacao[vertice].length; i++) {
+    //    logger.innerHTML += ' [ ' + this.ligacao[vertice][i][0] + ' ] ';     
+    //}
     return this.ligacao[vertice];
 };
 
@@ -136,26 +136,12 @@ Grafo.prototype.imprimirGrafo = function () {
     console.log(this.ligacao);
 };
 
-function imprimeLista() {
-    var logger = document.getElementById('log');
-    logger.innerHTML += '<br />';
 
-    console.log(grafo.ligacao);
-    for(var i=0;i<grafo.vertices.length;i++){
-        logger.innerHTML += grafo.vertices[i] + ' -> ';
-        for(var j=0; j<grafo.ligacao[grafo.vertices[i]].length; j++){
-            logger.innerHTML += ' | ' + grafo.ligacao[grafo.vertices[i]][j][0]
-        }
-        logger.innerHTML += '<br>';
-    }
-}
+/*####################################################################################################################################/
+     WELSH and POWELL E SUAS FUNÇÕES AUXILIARES 
 
-/*########################################################################################################        RETORNAR LIGAÇÕES - Samuel Brati Favarin
-
-            FUNÇÕES DE DESENHO CANVAS
-
-#######################################################################################################*/
-Grafo.prototype.desenhaCanvasLigacoes = function (tipo){
+/*##################################################################################################################################*/
+Grafo.prototype.desenhaCanvasLigacoes = function (){
 
     //Config do canvas
     canvas  = document.getElementById('myCanvas');
@@ -185,9 +171,198 @@ Grafo.prototype.desenhaCanvasLigacoes = function (tipo){
     console.log(vertices);
     console.log(ligacoes);
 
-    if(tipo == "welshAndPowell"){
-        start(canvas, this.welshAndPowell(), ligacoes, grafo);
+    start(canvas, this.welshAndPowell(), ligacoes, grafo);
+};
+
+Grafo.prototype.welshAndPowell = function (){
+
+    var grauEmOrdem = [];
+    var verticePeso;
+    var troca;
+    //var temp;
+
+    for(var i=0;i < this.vertices.length; i++) {
+        verticePeso = new Array();
+        verticePeso[0] = this.vertices[i]; //Vértice
+        verticePeso[1] = this.retornarLigacoes(this.vertices[i]).length; //Grau
+        verticePeso[2] = "Sem Cor"; //Cor inicial como "Sem cor"
+
+        grauEmOrdem.push(verticePeso); //Inserindo para poder ver vertice e seus graus!
+    } 
+
+    troca = 1;
+    
+    // 1 . Ordenação pelos graus de cada vértice, verificar área do console
+    while (troca == 1){
+        troca = 0;        
+        for (i = 0; i <= grauEmOrdem.length-2; i++){ 
+            if (grauEmOrdem[i][1] < grauEmOrdem[i+1][1]){
+                troca = 1;
+                aux = grauEmOrdem[i];
+                grauEmOrdem[i] = grauEmOrdem[i + 1];
+                grauEmOrdem[i + 1] = aux;
+            }
+        }
     }
+
+    // 2. Criando vetor de cores https://gist.github.com/bobspace/2712980#file-css_colors-js
+    var CSS_COLOR_NAMES = this.retornaCssColors();
+
+    //Caso seja um grafo nulo, sem ligações, aplicar cor g= 1;
+    var g = 1;
+    for(i = 0; i < this.vertices.length; i++){
+        if(this.ligacao[this.vertices[i]].length != 0){
+            g = 0;
+        }
+    }
+
+    //Grafo nulo, cor única!
+    if(g == 1){
+        for(i = 0; i < grauEmOrdem.length; i++){
+            grauEmOrdem[i][2] = CSS_COLOR_NAMES[ Math.floor(Math.random() * CSS_COLOR_NAMES.length) ];
+        }
+    }else{
+        //Grafo não nulo, verificar cada vértice vizinho e aplicar cor ou não
+        var countSemCor = grauEmOrdem.length;
+        var corAtual = CSS_COLOR_NAMES[g];
+        var flag;
+
+        while(countSemCor > 0){
+            
+            g = g + 1;
+            corAtual = CSS_COLOR_NAMES[g];
+            
+            //Percorre todos os vertices + grau
+            for(i = 0; i < grauEmOrdem.length; i++){  
+
+                if(grauEmOrdem[i][2] == "Sem Cor"){   
+                    flag = true;              
+                    //Percorro todas as ligações do vertice grauEmOrdem[i][2]
+                    for(j = 0; j < this.ligacao[grauEmOrdem[i][0]].length; j ++){                                          
+                        /*
+                            Percorres entao as cores desses vertices vizinhos
+                            e verifico se o vizinho do vertice do indece "i" tem a mesma cor,
+                            caso tenha o flag recebe = false 
+                        */
+                        for(k = 0; k < grauEmOrdem.length; k++ ){                                
+                            if(grauEmOrdem[k][0] == this.ligacao[grauEmOrdem[i][0]][j][0]){
+                                if(grauEmOrdem[k][2] == corAtual) {
+                                    flag = false;
+                                }
+                            }                   
+                        }
+                    }
+                    //Caso nenhum vizinho tenha a cor, atribuo a cor ao vertice atual de "I"
+                    if(flag == true){
+                        grauEmOrdem[i][2] = corAtual;
+                    }
+                }else{
+                    countSemCor = countSemCor - 1;
+                }
+            }
+        }
+    }
+
+    return grauEmOrdem;
+};
+
+Grafo.prototype.iniciaControle = function (conjuntoArestas, conjuntoVertices){
+
+    var conjuntoControle = new Array();
+    var temp = [];
+    var verticeAtual;
+    var ligacaoAtual;
+    var pesoAtual;
+    var flag;
+
+    //Monta um array com ligações e peso
+    for(var i = 0; i < conjuntoVertices.length; i++){
+        for(var j = 0; j < conjuntoArestas[conjuntoVertices[i]].length; j++){
+
+            flag = true;
+            temp = [];
+            verticeAtual = conjuntoVertices[i];
+            ligacaoAtual = conjuntoArestas[conjuntoVertices[i]][j][0];
+            pesoAtual = conjuntoArestas[conjuntoVertices[i]][j][1];
+
+            //Veritico se existe duplicidade de ligação, exemplo AD e DA
+            for(var k = 0; k < conjuntoControle.length; k++){
+
+                if( (conjuntoControle[k][0] == ligacaoAtual) &&
+                    (conjuntoControle[k][1] == verticeAtual) &&
+                    (conjuntoControle[k][2] == pesoAtual) ){
+                    flag = false;
+                }
+            }
+
+            //Se não encontrou duplicidade...
+            if(flag == true){
+                temp[0] = verticeAtual;
+                temp[1] = ligacaoAtual;
+                temp[2] = pesoAtual;
+                conjuntoControle.push(temp); //Irei juntar tudo em um vetor mais organizado
+            }
+        }
+    }
+
+    return conjuntoControle;
+};
+
+/*########################################################################################################        RETORNAR LIGAÇÕES - Samuel Brati Favarin
+
+            FUNÇÃO É CICLO DE PESO ZERO
+
+#######################################################################################################*/
+
+Grafo.prototype.cicloPesoZero = function () {
+    var origem = document.getElementById('inputCalculaCiclo');
+    if (grafo.dfsComDestino(origem.value, origem.value)) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+/*########################################################################################################        RETORNAR LIGAÇÕES - Samuel Brati Favarin
+
+            FUNÇÃO DFS COM DESTINO (ORIGEM E DESTINO IGUAL POIS É CICLO)
+
+#######################################################################################################*/
+
+
+Grafo.prototype.dfsComDestino = function (origem,destino){
+    var visitados   = [];
+    var pilha       = [];
+    var peso=0;
+    pilha.push(origem);
+    //visita a partir da origem
+    while (pilha.length > 0){
+        var nodo = pilha.pop();
+        //SE O VERTICE NÃO FOI VISITADO
+        if (visitados.indexOf(nodo) == -1){
+            visitados.push(nodo);
+            for (var i = 0; i < this.ligacao[nodo].length; i++){
+                pilha.push(this.ligacao[nodo][i][0]);
+                peso += parseInt(this.ligacao[nodo][i][1]);
+                
+                if((this.ligacao[nodo][i][0] === destino) && peso === 0){
+                    //console.log('Caminho encontrado');
+                    visitados.push(this.ligacao[nodo][i][0]);
+                    //console.log(visitados);
+                    //imprimeNotificacao("Caminho encontrado! Veja o Console", "success");
+                    var logger = document.getElementById('log');  
+                    logger.innerHTML += visitados + '<br />';
+                    console.log(visitados);
+                    console.log(peso);
+                    return true;
+                }
+            }
+        }
+    }
+
+    return false;
+    //console.log('Caminho não encontrado');
+    //imprimeNotificacao("Caminho não encontrado!", "warn");
 };
 
 Grafo.prototype.retornaCssColors = function (){
@@ -207,3 +382,8 @@ Grafo.prototype.retornaCssColors = function (){
 
     return css;
 };
+
+
+
+
+
