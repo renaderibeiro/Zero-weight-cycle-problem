@@ -210,11 +210,29 @@ function imprimeLista() {
 #######################################################################################################*/
 
 function coloreWelshAndPowell(){
-
     if(grafo.vertices.length > 0){
-         grafo.desenhaCanvasLigacoes("welshAndPowell");
-     }else{
+         grafo.desenhaCanvasLigacoes();
+    } else{
         imprimeNotificacao("Não existem Vértices!", "warn"); 
-     }
+    }
+}
+
+/*########################################################################################################        RETORNAR LIGAÇÕES - Samuel Brati Favarin
+
+            FUNÇÕES DE CICLO DE PESO ZERO
+#######################################################################################################*/
+
+function calculaCiclo(){
+    if (grafo.vertices.length > 0) {
+        if(grafo.cicloPesoZero()){
+            imprimeNotificacao("Existe (pelo menos) um ciclo de peso zero. Veja em CONSOLE", "sucess");
+            coloreWelshAndPowell();
+            imprimeNotificacao("Verifique o grafo construído em CANVAS", "sucess");
+        } else{
+            imprimeNotificacao("Não existe ciclo de peso zero", "error"); 
+        }
+    } else {
+        imprimeNotificacao("Não existem Vértices!", "warn");
+    }
 }
 
