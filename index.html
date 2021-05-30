@@ -183,11 +183,17 @@
                         <div class="form-group">
                             <p>Seja um grafo direcionado e ponderado G = (V, E) com pesos positivos ou negativos em suas arestas.
                                 O problema do ciclo de peso zero consiste em decidir se há um ciclo simples em G de forma que a
-                                soma dos pesos das arestas nesse ciclo seja exatamente zero. 
+                                soma dos pesos das arestas nesse ciclo seja exatamente zero.
+                                
+                                <br><br>
+
+                                Digite abaixo o vértice do grafo constrúido
+                                para o qual deseja verificar se existe ciclo de peso zero.
                             </p>
                             <br></br>
-                            <button type="button" class="btn botao-btn btn-info btn-block" id="retornarCiclo" onclick="retornaCiclo()">
-                                Existe Ciclo de Peso Zero</button>
+                            <input class="form-control" id="inputCalculaCiclo" placeholder="Vértice">
+                            <button type="button" class="btn botao-btn btn-info btn-block" onclick="calculaCiclo()">
+                                Existe Ciclo de Peso Zero?</button>
                         </div>
                     </form>
                 </div>
