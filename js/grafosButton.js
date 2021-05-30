@@ -12,7 +12,7 @@ function adicionaGrafo(){
         grafo =  new Grafo(true,true);
         if (grafo.existeGrafo()) {
             imprimeNotificacao("Grafo criado com sucesso", "success");
-            console.log("criei");
+            //console.log("criei");
             contador = 1;
         } else {
             imprimeNotificacao("Erro ao criar grafo", "error");
@@ -194,7 +194,7 @@ function imprimeLista() {
     var logger = document.getElementById('log');
     logger.innerHTML += '<br />';
 
-    console.log(grafo.ligacao);
+    //console.log(grafo.ligacao);
     for(var i=0;i<grafo.vertices.length;i++){
         logger.innerHTML += grafo.vertices[i] + ' -> ';
         for(var j=0; j<grafo.ligacao[grafo.vertices[i]].length; j++){
@@ -223,16 +223,17 @@ function coloreWelshAndPowell(){
 #######################################################################################################*/
 
 function calculaCiclo(){
+    limparConsole();
     if (grafo.vertices.length > 0) {
         if(grafo.cicloPesoZero()){
             imprimeNotificacao("Existe (pelo menos) um ciclo de peso zero. Veja em CONSOLE", "sucess");
-            coloreWelshAndPowell();
-            imprimeNotificacao("Verifique o grafo construído em CANVAS", "sucess");
         } else{
             imprimeNotificacao("Não existe ciclo de peso zero", "error"); 
         }
     } else {
         imprimeNotificacao("Não existem Vértices!", "warn");
     }
+    coloreWelshAndPowell();
+    imprimeNotificacao("Verifique o grafo construído em CANVAS", "sucess");
 }
 
