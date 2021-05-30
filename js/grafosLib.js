@@ -20,7 +20,7 @@ Grafo.prototype.addArcoPonderado = function (vertice1,vertice2,_peso){
     if (this.direcionado) {
         this.ligacao[vertice1].push([vertice2, _peso]);  
         //imprimeNotificacao("Aresta adicionada com sucesso!", "success");
-        console.log('aresta adicionada');
+        //console.log('Aresta adicionada');
         return true;
     }
 };
@@ -28,7 +28,7 @@ Grafo.prototype.addArcoPonderado = function (vertice1,vertice2,_peso){
 Grafo.prototype.removerVertice = function (vertice) {
     var index_vertice = this.vertices.indexOf(vertice);
     if (index_vertice == -1){
-        console.log("Vértice não existe");
+        //console.log("Vértice não existe");
         //imprimeNotificacao("Vértice não existe!", "warn");
         return null;
     }
@@ -74,12 +74,12 @@ Grafo.prototype.existeLigacao = function (origem,destino) {
     if(this.direcionado){
         for(var i =0; i<this.ligacao[origem].length; i++ ) {
             if (this.ligacao[origem][i][0] === destino) {
-                console.log('Existe aresta');
+                //console.log('Existe aresta');
                 //imprimeNotificacao("Existe aresta", "success");
                 return true;
             }
         }
-        console.log('Aresta não encontrada');
+        //console.log('Aresta não encontrada');
         //imprimeNotificacao("Aresta não encontrada", "error");
         return false;
     }
@@ -89,13 +89,13 @@ Grafo.prototype.existeVertice = function (vertice) {
     var logger = document.getElementById('log');
     for(var i=0; i<this.vertices.length; i++){
         if(this.vertices[i] === vertice){
-            console.log(this.vertices[i]);
-            console.log('Existe vértice');        
+            //console.log(this.vertices[i]);
+            //console.log('Existe vértice');        
             //logger.innerHTML += this.vertices[i] + '<br />';  
             return true;
         } 
     }
-    console.log('Não existe vértice');
+    //console.log('Não existe vértice');
     //logger.innerHTML = '<br />';  
     return false;
 };
@@ -130,10 +130,10 @@ Grafo.prototype.imprimirGrafo = function () {
             }
         }
     }
-    console.log('Matriz de Adjacencia: ');
-    console.log(this.matriz);
-    console.log('Lista de Adjacencia: ');
-    console.log(this.ligacao);
+    //console.log('Matriz de Adjacencia: ');
+    //console.log(this.matriz);
+    //console.log('Lista de Adjacencia: ');
+    //console.log(this.ligacao);
 };
 
 
@@ -168,8 +168,8 @@ Grafo.prototype.desenhaCanvasLigacoes = function (){
         vertices.push(auxVertices);
     }
 
-    console.log(vertices);
-    console.log(ligacoes);
+    //console.log(vertices);
+    //console.log(ligacoes);
 
     start(canvas, this.welshAndPowell(), ligacoes, grafo);
 };
@@ -316,7 +316,7 @@ Grafo.prototype.iniciaControle = function (conjuntoArestas, conjuntoVertices){
 
 Grafo.prototype.cicloPesoZero = function () {
     var origem = document.getElementById('inputCalculaCiclo');
-    if (grafo.dfsComDestino(origem.value, origem.value)) {
+    if (grafo.dfscomDestino(origem.value, origem.value)) {
         return true;
     } else {
         return false;
@@ -330,11 +330,11 @@ Grafo.prototype.cicloPesoZero = function () {
 #######################################################################################################*/
 
 
-Grafo.prototype.dfsComDestino = function (origem,destino){
+Grafo.prototype.dfscomDestino = function (origem,destino){
     var visitados   = [];
     var pilha       = [];
-    var peso=0;
     pilha.push(origem);
+    var peso = 0;
     //visita a partir da origem
     while (pilha.length > 0){
         var nodo = pilha.pop();
@@ -343,26 +343,26 @@ Grafo.prototype.dfsComDestino = function (origem,destino){
             visitados.push(nodo);
             for (var i = 0; i < this.ligacao[nodo].length; i++){
                 pilha.push(this.ligacao[nodo][i][0]);
-                peso += parseInt(this.ligacao[nodo][i][1]);
-                
-                if((this.ligacao[nodo][i][0] === destino) && peso === 0){
-                    //console.log('Caminho encontrado');
-                    visitados.push(this.ligacao[nodo][i][0]);
-                    //console.log(visitados);
-                    //imprimeNotificacao("Caminho encontrado! Veja o Console", "success");
-                    var logger = document.getElementById('log');  
-                    logger.innerHTML += visitados + '<br />';
-                    console.log(visitados);
-                    console.log(peso);
-                    return true;
+                peso+= parseInt(this.ligacao[nodo][i][1]);
+                if (this.ligacao[nodo][i][0] === destino) {
+                    if (peso === 0) {
+                        visitados.push(this.ligacao[nodo][i][0]);
+                        console.log(peso);
+                        limparConsole();
+                        var logger = document.getElementById('log');
+                        logger.innerHTML += visitados + '<br />';
+                        return true;
+                    }
+                    visitados   = [];
+                    pilha       = [];
+                    peso = 0;
                 }
             }
         }
     }
 
     return false;
-    //console.log('Caminho não encontrado');
-    //imprimeNotificacao("Caminho não encontrado!", "warn");
+
 };
 
 Grafo.prototype.retornaCssColors = function (){
