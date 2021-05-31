@@ -10,15 +10,9 @@ O projeto conta com representação visual e outras funcionalidades que podem se
   - [Renata Lima Ribeiro de Sena](https://github.com/SamuelBFavarin) com fork de [GRAFOS-GUI](https://github.com/SamuelBFavarin/Grafos-GUI)
 ​
 
-### Descrição dos principais arquivos
-
-- js/grafosLib.js -> Algoritmos e implantação do grafo
-
-- js/grafosButton.js -> Comunicação entre index.html e grafosLib.js
-
-- js/canvas.js -> Implementção do desenho do grafo em canvas
-
-- index.html -> Interface gráfica para utilização do projeto
+### Algoritmo de Resolução
 
 
 ​
+
+### Instruções Gerais
