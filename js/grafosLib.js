@@ -335,11 +335,13 @@ Grafo.prototype.dfscomDestino = function (origem,destino){
     var pilha       = [];
     pilha.push(origem);
     var peso = 0;
+    var flag = 0;
     //visita a partir da origem
     while (pilha.length > 0){
         var nodo = pilha.pop();
         //SE O VERTICE NÃO FOI VISITADO
         if (visitados.indexOf(nodo) == -1){
+            flag = 0;
             visitados.push(nodo);
             for (var i = 0; i < this.ligacao[nodo].length; i++){
                 pilha.push(this.ligacao[nodo][i][0]);
@@ -348,16 +350,16 @@ Grafo.prototype.dfscomDestino = function (origem,destino){
                     if (peso === 0) {
                         visitados.push(this.ligacao[nodo][i][0]);
                         console.log(peso);
-                        limparConsole();
                         var logger = document.getElementById('log');
                         logger.innerHTML += visitados + '<br />';
                         return true;
                     }
-                    visitados   = [];
-                    pilha       = [];
-                    peso = 0;
+                    flag = 1;
+                    break;
                 }
+                if (flag === 1) break;
             }
+
         }
     }
 
