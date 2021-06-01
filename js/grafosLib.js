@@ -330,7 +330,6 @@ Grafo.prototype.cicloPesoZero = function (origem) {
 
 
 Grafo.prototype.dfscomDestino = function (origem,destino){
-    console.log("oi");
     var visitados   = [];
     var pilha       = [];
     pilha.push(origem);
