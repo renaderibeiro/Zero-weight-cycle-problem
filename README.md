@@ -20,7 +20,7 @@ Matrícula: 219115203
 
 A Interface Web pode ser acessada [aqui](https://renaderibeiro.github.io/problema-do-ciclo-de-peso-zero/).
 
-O vídeo descritivo pode ser acessado [aqui]().
+O vídeo descritivo pode ser acessado [aqui](https://youtu.be/2t0E3ofHOUs).
 
 
 ## 💻 Tecnologias Utilizadas
