@@ -30,7 +30,8 @@ Foram utilizadas as seguintes tecnologias para o desenvolvimento:
 
 - HTML 5
 - CSS 3
-- JavaScript
+- [Bootstrap](https://getbootstrap.com/)
+- [JavaScript](https://www.javascript.com/)
 
 Não é necessária a instalação de nenhuma dependência para a utilização do projeto ou sua reprodução. Para facilitar a visualização do código é recomendada a utilização de uma IDE.
 
