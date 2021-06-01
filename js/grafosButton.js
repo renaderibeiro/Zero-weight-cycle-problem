@@ -224,8 +224,9 @@ function coloreWelshAndPowell(){
 
 function calculaCiclo(){
     limparConsole();
+    var origem = document.getElementById('inputCalculaCiclo');
     if (grafo.vertices.length > 0) {
-        if(grafo.cicloPesoZero()){
+        if(grafo.cicloPesoZero(origem)){
             imprimeNotificacao("Existe (pelo menos) um ciclo de peso zero. Veja em CONSOLE", "sucess");
         } else{
             imprimeNotificacao("Não existe ciclo de peso zero", "error"); 
@@ -235,5 +236,6 @@ function calculaCiclo(){
     }
     coloreWelshAndPowell();
     imprimeNotificacao("Verifique o grafo construído em CANVAS", "sucess");
+    origem.value='';
 }
 
