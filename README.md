@@ -32,8 +32,9 @@ Foram utilizadas as seguintes tecnologias para o desenvolvimento:
 - CSS 3
 - [Bootstrap](https://getbootstrap.com/)
 - [JavaScript](https://www.javascript.com/)
+- [jQuery](https://jquery.com/)
 
-Não é necessária a instalação de nenhuma dependência para a utilização do projeto ou sua reprodução. Para facilitar a visualização do código é recomendada a utilização de uma IDE.
+Não é necessária a instalação de nenhuma dependência para a utilização do projeto ou sua reprodução, visto que os compilados de CSS e JavaScript do Bootstrap são importados diretamente no código por meio do BootstrapCDN. Para facilitar a visualização do código é recomendada a utilização de uma IDE.
 
 
 ## 🦮 Instruções Gerais para utilização da Interface Web
