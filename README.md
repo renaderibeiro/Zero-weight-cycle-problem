@@ -50,7 +50,6 @@ Não é necessária a instalação de nenhuma dependência para a utilização d
   * A visualização será feita na aba `CONSOLE` para vértices, arestas e matriz de adjacência
   * A visualização será feita na aba `CANVAS` para o grafo
 - É possível visualizar a existência de ligações e vértices
-- É possível, a partir da informação de um vértice, retornar suas ligações
 - É possível verificar a existência de um `CICLO DE PESO ZERO` na aba `AÇÕES` informando um vértice
 
 
