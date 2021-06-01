@@ -314,8 +314,7 @@ Grafo.prototype.iniciaControle = function (conjuntoArestas, conjuntoVertices){
 
 #######################################################################################################*/
 
-Grafo.prototype.cicloPesoZero = function () {
-    var origem = document.getElementById('inputCalculaCiclo');
+Grafo.prototype.cicloPesoZero = function (origem) {
     if (grafo.dfscomDestino(origem.value, origem.value)) {
         return true;
     } else {
@@ -331,40 +330,33 @@ Grafo.prototype.cicloPesoZero = function () {
 
 
 Grafo.prototype.dfscomDestino = function (origem,destino){
+    console.log("oi");
     var visitados   = [];
     var pilha       = [];
     pilha.push(origem);
+    var acumulador;
     var peso = 0;
-    var flag = 0;
     //visita a partir da origem
     while (pilha.length > 0){
         var nodo = pilha.pop();
         //SE O VERTICE NÃO FOI VISITADO
         if (visitados.indexOf(nodo) == -1){
-            flag = 0;
             visitados.push(nodo);
             for (var i = 0; i < this.ligacao[nodo].length; i++){
+                acumulador=parseInt(this.ligacao[nodo][i][1]);
+                peso+=acumulador;
                 pilha.push(this.ligacao[nodo][i][0]);
-                peso+= parseInt(this.ligacao[nodo][i][1]);
-                if (this.ligacao[nodo][i][0] === destino) {
-                    if (peso === 0) {
-                        visitados.push(this.ligacao[nodo][i][0]);
-                        console.log(peso);
-                        var logger = document.getElementById('log');
-                        logger.innerHTML += visitados + '<br />';
-                        return true;
-                    }
-                    flag = 1;
-                    break;
+                if (this.ligacao[nodo][i][0] === destino && peso === 0) {
+                    visitados.push(this.ligacao[nodo][i][0]);
+                    var logger = document.getElementById('log');
+                    logger.innerHTML += visitados + '<br />';
+                    return true;
                 }
-                if (flag === 1) break;
             }
-
         }
     }
 
     return false;
-
 };
 
 Grafo.prototype.retornaCssColors = function (){
