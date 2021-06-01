@@ -18,7 +18,7 @@ Matrícula: 219115203
 ## 🖱️ Acesso
 
 
-A interface web pode ser acessada [aqui](https://renaderibeiro.github.io/problema-do-ciclo-de-peso-zero/).
+A Interface Web pode ser acessada [aqui](https://renaderibeiro.github.io/problema-do-ciclo-de-peso-zero/).
 
 O vídeo descritivo pode ser acessado [aqui]().
 
@@ -35,7 +35,7 @@ Foram utilizadas as seguintes tecnologias para o desenvolvimento:
 Não é necessária a instalação de nenhuma dependência para a utilização do projeto ou sua reprodução. Para facilitar a visualização do código é recomendada a utilização de uma IDE.
 
 
-## 🦮 Instruções Gerais para utilização da interface web
+## 🦮 Instruções Gerais para utilização da Interface Web
 
 
 - Para criar um grafo deve-se usar a opção do botão `CRIAR GRAFO` na aba `CRIAÇÃO`
