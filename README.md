@@ -1,15 +1,13 @@
+# Zero-weight Cycle Problem
 
 
-## Zero-Heigth Cycle Problem - Problema do Ciclo de Peso Zero
-
-
-### 📃 Descrição
+## 📃 Descrição
 
 
 A aplicação busca implementar por meio de um algoritmo baseado no algoritmo de Busca em Profundidade ([DFS](https://en.wikipedia.org/wiki/Depth-first_search)), uma solução para o [Problema do Ciclo de Peso Zero](https://en.wikipedia.org/wiki/Zero-weight_cycle_problem).
 
 
-### ✏️ Apresentação
+## ✏️ Apresentação
 
 
 Aplicação desenvolvida por [Renata Lima Ribeiro de Sena](https://github.com/renaderibeiro) com fork de [GRAFOS-GUI](https://github.com/SamuelBFavarin/Grafos-GUI) para o componente curricular MATA53 - Teoria dos Grafos do curso de Ciência da Computação na Universidade Federal da Bahia, pelo semestre 2021.1. O componente curricular em questão é ministrada pelo [Prof. Dr. Tiago Januário](https://www.linkedin.com/in/januarioccp/).
@@ -17,7 +15,7 @@ Aplicação desenvolvida por [Renata Lima Ribeiro de Sena](https://github.com/re
 Matrícula: 219115203
 
 
-### 🖱️ Acesso
+## 🖱️ Acesso
 
 
 A interface web pode ser acessada [aqui](https://renaderibeiro.github.io/problema-do-ciclo-de-peso-zero/).
@@ -25,7 +23,7 @@ A interface web pode ser acessada [aqui](https://renaderibeiro.github.io/problem
 O vídeo descritivo pode ser acessado [aqui]().
 
 
-### 💻 Tecnologias Utilizadas
+## 💻 Tecnologias Utilizadas
 
 
 Foram utilizadas as seguintes tecnologias para o desenvolvimento:
@@ -33,8 +31,10 @@ Foram utilizadas as seguintes tecnologias para o desenvolvimento:
 - CSS
 - JavaScript
 
+Não é necessária a instalação de nenhuma dependência para a utilização do projeto ou sua reprodução. Para facilitar a visualização do código é recomendada a utilização de uma IDE.
 
-### 🦮 Instruções Gerais para utilização da interface web
+
+## 🦮 Instruções Gerais para utilização da interface web
 
 
 - Para criar um grafo deve-se usar a opção do botão `CRIAR GRAFO` na aba `CRIAÇÃO`
@@ -53,7 +53,7 @@ Foram utilizadas as seguintes tecnologias para o desenvolvimento:
 - É possível verificar a existência de um `CICLO DE PESO ZERO` na aba `AÇÕES` informando um vértice
 
 
-### ℹ️ Algoritmo de Resolução
+## ℹ️ Algoritmo de Resolução
 
 
 O algoritmo de resolução é um algoritmo de busca baseado no algoritmo de busca em profundidade tradicional. A função recebe como parâmetros o vértice informado como `origem` e `destino` (já que procura-se um ciclo).
@@ -112,7 +112,7 @@ if (this.ligacao[nodo][i][0] === destino && peso === 0) {
 Com o `if` verifica-se se o vértice atual é o vértice de destino (que é o mesmo de origem por ser um ciclo) e se o peso acumulado é igual a 0. Caso a afirmação anterior seja verdadeira, a lista `visitados` recebe o último vértice, que é o mesmo de origem. O `logger` imprime os `visitados` na aba `CONSOLE` e retorna true. Caso contrário, continuam-se as buscas. Em caso de ciclo de peso zero não encontrado, retorna-se falso.
 
 
-### 📚 Referências e Para saber mais
+## 📚 Referências e Para saber mais
 
 
 - [Como detectar um ciclo em um grafo](https://www.geeksforgeeks.org/detect-cycle-in-a-graph/)
@@ -121,3 +121,4 @@ Com o `if` verifica-se se o vértice atual é o vértice de destino (que é o me
 - [Como determinar ciclos em grafo direcionado](https://www.docow.com/2642/melhor-algoritmo-para-detectar-ciclos-em-um-grafo-direcionado.html)
 - [Algoritmo de Dijkstra e algoritmo Bellman-ford (Python)](https://github.com/dedeco/dijkstra-bellman-ford)
 - [Algoritmos clássicos de Grafos e Interface Gráfica](https://github.com/SamuelBFavarin/Grafos-GUI)
+- [Zero-weight cycle problem]()
