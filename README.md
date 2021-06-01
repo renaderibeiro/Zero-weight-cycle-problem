@@ -27,11 +27,12 @@ O vídeo descritivo pode ser acessado [aqui]().
 
 
 Foram utilizadas as seguintes tecnologias para o desenvolvimento:
+
 - HTML
 - CSS
 - JavaScript
 
-Não é necessária a instalação de nenhuma dependência para a utilização do projeto ou sua reprodução. Para facilitar a visualização do código é recomendada a utilização de uma IDE 
+Não é necessária a instalação de nenhuma dependência para a utilização do projeto ou sua reprodução. Para facilitar a visualização do código é recomendada a utilização de uma IDE.
 
 
 ## 🦮 Instruções Gerais para utilização da interface web
