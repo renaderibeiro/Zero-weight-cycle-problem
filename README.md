@@ -31,7 +31,7 @@ Foram utilizadas as seguintes tecnologias para o desenvolvimento:
 - CSS
 - JavaScript
 
-Não é necessária a instalação de nenhuma dependência para a utilização do projeto ou sua reprodução. Para facilitar a visualização do código é recomendada a utilização de uma IDE.
+Não é necessária a instalação de nenhuma dependência para a utilização do projeto ou sua reprodução. Para facilitar a visualização do código é recomendada a utilização de uma IDE 
 
 
 ## 🦮 Instruções Gerais para utilização da interface web
@@ -112,7 +112,7 @@ if (this.ligacao[nodo][i][0] === destino && peso === 0) {
 Com o `if` verifica-se se o vértice atual é o vértice de destino (que é o mesmo de origem por ser um ciclo) e se o peso acumulado é igual a 0. Caso a afirmação anterior seja verdadeira, a lista `visitados` recebe o último vértice, que é o mesmo de origem. O `logger` imprime os `visitados` na aba `CONSOLE` e retorna true. Caso contrário, continuam-se as buscas. Em caso de ciclo de peso zero não encontrado, retorna-se falso.
 
 
-## 📚 Referências e Para saber mais
+### 📚 Referências e Para saber mais
 
 
 - [Como detectar um ciclo em um grafo](https://www.geeksforgeeks.org/detect-cycle-in-a-graph/)
@@ -120,5 +120,3 @@ Com o `if` verifica-se se o vértice atual é o vértice de destino (que é o me
 - [Algoritmos de Grafos em JavaScript](https://github.com/dexcodeinc/graph_algorithm.js)
 - [Como determinar ciclos em grafo direcionado](https://www.docow.com/2642/melhor-algoritmo-para-detectar-ciclos-em-um-grafo-direcionado.html)
 - [Algoritmo de Dijkstra e algoritmo Bellman-ford (Python)](https://github.com/dedeco/dijkstra-bellman-ford)
-- [Algoritmos clássicos de Grafos e Interface Gráfica](https://github.com/SamuelBFavarin/Grafos-GUI)
-- [Zero-weight cycle problem]()
