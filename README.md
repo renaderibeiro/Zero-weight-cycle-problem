@@ -10,7 +10,7 @@ A aplicação busca implementar por meio de um algoritmo baseado no algoritmo de
 ## ✏️ Apresentação
 
 
-Aplicação desenvolvida por [Renata Lima Ribeiro de Sena](https://github.com/renaderibeiro) com fork de [GRAFOS-GUI](https://github.com/SamuelBFavarin/Grafos-GUI) para o componente curricular MATA53 - Teoria dos Grafos do curso de Ciência da Computação na Universidade Federal da Bahia, pelo semestre 2021.1. O componente curricular em questão é ministrada pelo [Prof. Dr. Tiago Januário](https://www.linkedin.com/in/januarioccp/).
+Aplicação desenvolvida por [Renata Lima Ribeiro de Sena](https://github.com/renadeveloper) com fork de [GRAFOS-GUI](https://github.com/SamuelBFavarin/Grafos-GUI) para o componente curricular MATA53 - Teoria dos Grafos do curso de Ciência da Computação na Universidade Federal da Bahia, pelo semestre 2021.1. O componente curricular em questão é ministrada pelo [Prof. Dr. Tiago Januário](https://www.linkedin.com/in/januarioccp/).
 
 Matrícula: 219115203
 
@@ -18,7 +18,7 @@ Matrícula: 219115203
 ## 🖱️ Acesso
 
 
-A Interface Web pode ser acessada [aqui](https://renaderibeiro.github.io/problema-do-ciclo-de-peso-zero/).
+A Interface Web pode ser acessada [aqui](https://renadeveloper.github.io/problema-do-ciclo-de-peso-zero/).
 
 O vídeo descritivo pode ser acessado [aqui](https://youtu.be/2t0E3ofHOUs).
 
