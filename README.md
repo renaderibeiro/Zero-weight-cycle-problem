@@ -1,3 +1,5 @@
+[![Generic badge](https://img.shields.io/badge/STATUS-CONCLUÍDO-<COLOR>.svg)](https://shields.io/)
+
 # Zero-weight Cycle Problem
 
 
